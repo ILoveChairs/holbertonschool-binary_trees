@@ -13,7 +13,7 @@ size_t _counter(const binary_tree_t *tree)
 	size_t right;
 
 	if (tree->left)
-		left = _counter(tree->right);
+		left = _counter(tree->left);
 	else
 		left = 0;
 
