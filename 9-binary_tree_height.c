@@ -7,6 +7,8 @@
  *
  * @tree: asdfg
  *
+ * @h: asdfg
+ *
  * Return: asdfg
  */
 size_t _heighter(const binary_tree_t *tree, size_t h)
@@ -18,7 +20,7 @@ size_t _heighter(const binary_tree_t *tree, size_t h)
 		left = _heighter(tree->left, h + 1);
 	else
 		left = h;
-	
+
 	if (tree->right)
 		right = _heighter(tree->right, h + 1);
 	else
