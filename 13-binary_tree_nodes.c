@@ -4,7 +4,7 @@
  * _counter - asdfg
  *
  * @tree: asdfg
- * @flag: asdfg
+ * @count: asdfg
  *
  * Return: asdfg
  */
