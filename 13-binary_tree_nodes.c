@@ -15,7 +15,7 @@ size_t _counter(const binary_tree_t *tree, size_t *count)
 	if (tree->right)
 		_counter(tree->right, count);
 
-	if (((tree->left) && (!tree->right)) || ((!tree->left) && (tree->right)))
+	if (tree->left || tree->right)
 		*count += 1;
 
 	return (*count);
