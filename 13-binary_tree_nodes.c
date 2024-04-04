@@ -4,28 +4,21 @@
  * _counter - asdfg
  *
  * @tree: asdfg
+ * @flag: asdfg
  *
  * Return: asdfg
  */
-size_t _counter(const binary_tree_t *tree)
+size_t _counter(const binary_tree_t *tree, size_t *count)
 {
-	size_t left;
-	size_t right;
-
 	if (tree->left)
-		left = _counter(tree->left);
-	else
-		left = 0;
-
+		_counter(tree->left, count);
 	if (tree->right)
-		right = _counter(tree->right);
-	else
-		right = 0;
+		_counter(tree->right, count);
 
-	if ((left == 0) && (right == 0))
-		return (1);
+	if (((tree->left) && (!tree->right)) || ((!tree->left) && (tree->right)))
+		*count += 1;
 
-	return (left + right);
+	return (*count);
 }
 
 /**
@@ -37,13 +30,16 @@ size_t _counter(const binary_tree_t *tree)
  */
 size_t binary_tree_nodes(const binary_tree_t *tree)
 {
+	size_t count;
+
 	if (!tree)
 		return (0);
 
-	if (!tree->left && !tree->right)
-		return (0);
+	count = 0;
 
-	return (_counter(tree));
+	_counter(tree, &count);
+
+	return (count);
 }
 
 
